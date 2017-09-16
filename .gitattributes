@@ -3,6 +3,7 @@
 
 /tests export-ignore
 /.editorconfig
+/.travis.yml
 /.gitattributes export-ignore
 /.gitignore export-ignore
 /.travis.yml export-ignore
