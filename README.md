@@ -1,6 +1,6 @@
 PHP dotenv extension for [vlucas/phpdotenv](https://github.com/vlucas/phpdotenv)
-to load .env variables from include files as well as group them into array-like
-underscore syntax. [![Build Status](https://travis-ci.org/etelford/phpdotenv-include-extension.svg?branch=master)](https://travis-ci.org/etelford/phpdotenv-include-extension)
+to load .env variables from include files as well as group them into underscore
+syntax. [![Build Status](https://travis-ci.org/etelford/phpdotenv-include-extension.svg?branch=master)](https://travis-ci.org/etelford/phpdotenv-include-extension)
 =========
 
 How &amp; Why?
