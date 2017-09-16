@@ -1,14 +1,13 @@
 PHP dotenv extension for [vlucas/phpdotenv](https://github.com/vlucas/phpdotenv)
-to load .env variables from include files as well as group them into underscore
-syntax. [![Build Status](https://travis-ci.org/etelford/phpdotenv-include-extension.svg?branch=master)](https://travis-ci.org/etelford/phpdotenv-include-extension)
+to load .env variables from include files. [![Build Status](https://travis-ci.org/etelford/phpdotenv-include-extension.svg?branch=master)](https://travis-ci.org/etelford/phpdotenv-include-extension)
 =========
 
 How &amp; Why?
 ----
 
 This package works as an add-on to the great [vlucas/phpdotenv](https://github.com/vlucas/phpdotenv).
-When `.env` files start to get large it can be convenient to separate them out
-into smaller pieces. This helps solve that problem.
+When `.env` files start to get large it could be convenient to separate
+variables out into smaller pieces. This helps solve that problem.
 
 NB: If you're new to the idea of a `.env` file, I recommend you start by
 checking out [vlucas/phpdotenv](https://github.com/vlucas/phpdotenv) first.
@@ -40,9 +39,9 @@ PASSWORD=s3cr3t
 PORT=3306
 ```
 
-When you want to retrieve an env variable from an include file, create an
-instance of `Etelford\Dotenv` and then use dot syntax and whichever method you
-normally use to include environment variables:
+When you want to retrieve an `env` variable from an include file, create an
+instance of `Etelford\Dotenv` and then retrieve the variables using whichever
+method you normally use to include environment variables:
 
 ```php
 # Be sure to include your autoloader
@@ -55,6 +54,10 @@ echo $_SERVER('DATABASE_PASSWORD'); // s3cr3t
 echo env('DATABASE_PORT'); // 3306
 ```
 
+As you can see, the variables in an include file become namespaced. In the
+example above, `.database.env` is included by using a namespace (`DATABASE`)
+followed by and underscore (`_`) and the word `INCLUDE`.
+
 Using With Laravel 5.x
 ----------------------
 
@@ -63,7 +66,7 @@ open your `bootstrap/app.php` and add the following after the application is
 initially created:
 
 ```php
-// This created the application
+// This creates the application
 $app = new Illuminate\Foundation\Application(
     realpath(__DIR__.'/../')
 );
@@ -79,9 +82,10 @@ Conventions
 -----------
 
 1. The path of an include is always **relative to your root `.env` file**.
-1. You declare that a variable points to an include file using the `.INCLUDE`
+1. You declare that a variable points to an include file using the `_INCLUDE`
 keyword. If you wish to override this you can with the third argument when you
 create the `Dotenv` class: `$dotenv = new Etelford\Dotenv(__DIR__, '.env', 'PATH');`
+Note that the `_` should not be provided if you use this customization.
 
 Caveat
 ------
